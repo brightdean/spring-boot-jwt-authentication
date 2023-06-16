@@ -1,0 +1,31 @@
+server:
+  port: 4000
+  error:
+    include-message: always
+    include-binding-errors: always
+    include-stacktrace: never
+    include-exception: false
+
+spring:
+  datasource:
+    url: jdbc:postgresql://<datasource-url>
+    username: <username>
+    password: <password>
+    max-active: 3
+    max-idle: 3
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+
+application:
+  security:
+    jwt:
+      secret-key: <256-bit secret-key>
+      expiration: <number of hours>
+      refresh-token:
+        expiration: <number of hours>
